@@ -8,3 +8,8 @@ This repository hosts Dockerfiles designed to streamline computational biology a
 ## Install Docker for linux
 
 For Linux visit <a href="https://docs.docker.com/engine/install/ubuntu/">this website </a> and download the stable version of docker.The process issame for windows and linux, download the stable version only, for windows make sure the virtualisation option is on in settings, and if you dont have windos\ws 0 or higher you need to install further tools to support compatibility like <a href="URL">Docker Toolkit </a>.
+
+## Set up the repositiory
+1. Update the *apt* Package
+
+            $ sudo apt-get update
