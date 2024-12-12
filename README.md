@@ -13,3 +13,13 @@ For Linux visit <a href="https://docs.docker.com/engine/install/ubuntu/">this we
 1. Update the *apt* Package
 
             $ sudo apt-get update
+
+2. Install packagesto allow *apt* to use a repository over HTTPS:
+
+            $ sudo apt-get install\
+              apt-transport-https\
+              ca-certificates\
+              software-properties-common
+            
+
+3. 
