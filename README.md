@@ -55,3 +55,9 @@ For Linux visit <a href="https://docs.docker.com/engine/install/ubuntu/">this we
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
 
 You have now successfully installed and started Docker Engine.
+
+def hello_world():
+    print("Hello, World!")
+
+
+Use the `print()` function in Python.
