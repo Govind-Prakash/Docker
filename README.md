@@ -10,46 +10,54 @@ This repository hosts Dockerfiles designed to streamline computational biology a
 For Linux visit <a href="https://docs.docker.com/engine/install/ubuntu/">this website </a> and download the stable version of docker.The process issame for windows and linux, download the stable version only, for windows make sure the virtualisation option is on in settings, and if you dont have windos\ws 0 or higher you need to install further tools to support compatibility like <a href="URL">Docker Toolkit </a>.
 
 ## Uninstall old versions
-
-            $ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
 
 ## Set up the repositiory
 1. Update the *apt* Package
-
-            $ sudo apt-get update
+```bash
+sudo apt-get update
+```
 
 2. Install packages to allow *apt* to use a repository over HTTPS:
-
-            $ sudo apt-get install\
-              apt-transport-https\
-              ca-certificates\
-              software-properties-common
+```bash
+sudo apt-get install\
+apt-transport-https\
+ca-certificates\
+software-properties-common
+```
             
 
-3. Install using the apt repository, Add Docker's official GPG key:
+3. Install using the apt repository
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-              $ sudo apt-get update
-                sudo apt-get install ca-certificates curl
-                sudo install -m 0755 -d /etc/apt/keyrings
-                sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/     keyrings/docker.asc
-                sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
 
-4. Add the repository to Apt sources:
 
-               $ echo \
-                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-                $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-                sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-                sudo apt-get update
+4. Install the Docker packages
 
-5. Install the Docker packages
+ ```bash
+ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+ ```
 
-                $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+5. Verify that the installation is successful by running the hello-world image:
 
-6. Verify that the installation is successful by running the hello-world image:
-
-`sudo docker run hello-world`
-
+```bash
+sudo docker run hello-world
+```
 
 
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
