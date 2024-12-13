@@ -48,7 +48,7 @@ For Linux visit <a href="https://docs.docker.com/engine/install/ubuntu/">this we
 
 6. Verify that the installation is successful by running the hello-world image:
 
-                $ sudo docker run hello-world
+`sudo docker run hello-world`
 
 
 
@@ -56,22 +56,9 @@ This command downloads a test image and runs it in a container. When the contain
 
 You have now successfully installed and started Docker Engine.
 
-def hello_world():
-    print("Hello, World!")
 
 
-Use the `print()` function in Python.
 
 
-```python
-# Python Example
-def greet(name):
-    return f"Hello, {name}!"
-print(greet("World"))
 
 
-```bash
-# Python Example
-def greet(name):
-    return f"Hello, {name}!"
-print(greet("World"))
