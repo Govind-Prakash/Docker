@@ -61,3 +61,17 @@ def hello_world():
 
 
 Use the `print()` function in Python.
+
+
+```python
+# Python Example
+def greet(name):
+    return f"Hello, {name}!"
+print(greet("World"))
+
+
+```bash
+# Python Example
+def greet(name):
+    return f"Hello, {name}!"
+print(greet("World"))
