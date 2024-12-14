@@ -64,6 +64,8 @@ This command downloads a test image and runs it in a container. When the contain
 
 You have now successfully installed and started Docker Engine. 
 
+Now refer to Docker Wiki for further exploring Docker.
+
 
 
 
