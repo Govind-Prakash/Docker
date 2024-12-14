@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    .container-edit {
+      display: none; /* Hide the edit container by default */
+    }
+    .button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    hr {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Profile Display Section -->
+  <div class="container">
+    <h1 id="header">User Profile</h1>
+    <img width="25%" src="https://github.com/Govind-Prakash/Govind-Prakash/blob/main/Images/MyProfilePic.jpg?raw=true" alt="Profile Picture">
+    <h3>Name: <span id="name">Govind Prakash</span></h3>
+    <hr />
+    <h3>Email: <span id="email">Govind7x@gmail.com</span></h3>
+    <hr />
+    <h3>Interests: <span id="interests">coding</span></h3>
+    <hr />
+    <button class="button" onclick="editProfile()">Edit Profile</button>
+  </div>
+
+  <!-- Profile Edit Section -->
+  <div class="container-edit">
+    <h1 id="header">User Profile</h1>
+    <img src="profile_picture" alt="Profile Picture">
+    <label for="input-name">Name:</label>
+    <input id="input-name" type="text" />
+    <hr />
+    <label for="input-email">Email:</label>
+    <input id="input-email" type="email" />
+    <hr />
+    <label for="input-interests">Interests:</label>
+    <input id="input-interests" type="text" />
+    <hr />
+    <button class="button" onclick="saveProfile()">Save Profile</button>
+  </div>
+
+  <script>
+    // Function to switch to edit mode
+    function editProfile() {
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('.container-edit').style.display = 'block';
+
+      // Populate the input fields with current values
+      const name = document.querySelector('#name').textContent;
+      document.querySelector('#input-name').value = name;
+
+      const email = document.querySelector('#email').textContent;
+      document.querySelector('#input-email').value = email;
+
+      const interests = document.querySelector('#interests').textContent;
+      document.querySelector('#input-interests').value = interests;
+    }
+
+    // Function to save and switch back to view mode
+    function saveProfile() {
+      const name = document.querySelector('#input-name').value;
+      document.querySelector('#name').textContent = name;
+
+      const email = document.querySelector('#input-email').value;
+      document.querySelector('#email').textContent = email;
+
+      const interests = document.querySelector('#input-interests').value;
+      document.querySelector('#interests').textContent = interests;
+
+      document.querySelector('.container').style.display = 'block';
+      document.querySelector('.container-edit').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
